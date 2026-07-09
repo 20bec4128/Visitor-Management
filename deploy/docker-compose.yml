@@ -1,0 +1,56 @@
+# One self-contained stack per customer (tenant). Each tenant gets its own
+# database, backend, frontend and face-service — fully isolated. Run it with a
+# unique project name and the tenant's env file, e.g.:
+#
+#   docker compose -p vms_hospital_a --env-file tenants/hospital-a.env up -d --build
+#
+# (the new-tenant script does this for you).
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  face-service:
+    build: ../Backend/face-service
+    volumes:
+      - face-models:/root/.insightface   # cache the buffalo_l model
+    restart: unless-stopped
+
+  backend:
+    build: ../Backend/visitor-management
+    depends_on:
+      - db
+      - face-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USER}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      HIBERNATE_DDL_AUTO: update
+      AUTH_SECRET: ${AUTH_SECRET}
+      BOOTSTRAP_ADMIN_USERNAME: ${ADMIN_USERNAME}
+      BOOTSTRAP_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      FRONTEND_URL: ${PUBLIC_URL}
+      FACE_SERVICE_URL: http://face-service:8000
+      APP_UPLOADS_DIR: /app/uploads
+    volumes:
+      - uploads:/app/uploads
+    restart: unless-stopped
+
+  frontend:
+    build: ../Frontend/visitor-app
+    depends_on:
+      - backend
+    ports:
+      - "${HTTP_PORT:-8080}:80"
+    restart: unless-stopped
+
+volumes:
+  db-data:
+  uploads:
+  face-models:

@@ -1,0 +1,2 @@
+# Per-tenant env files contain secrets (DB passwords, AUTH_SECRET) — never commit.
+tenants/
