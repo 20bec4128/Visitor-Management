@@ -1,0 +1,470 @@
+@import './staff/StaffUsersPage.css';
+
+.user-wizard {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  height: auto;
+  padding: 0rem 2rem 2rem 2rem;
+  background-color: #fcfcfc;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.user-wizard .wizard-progress-bar {
+  width: 100%;
+  height: 4px;
+  background-color: #e9ecef;
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+
+.user-wizard .wizard-progress {
+  height: 100%;
+  background-color: #45597a;
+  border-radius: 2px;
+  transform-origin: left center;
+}
+
+.user-wizard .wizard-circles-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.user-wizard .wizard-circles-container::before {
+  content: '';
+  position: absolute;
+  top: 1.5em;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: #45597a;
+  z-index: 0;
+}
+
+.user-wizard .wizard-circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.user-wizard .wizard-circle {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid #45597a;
+  background-color: #fcfcfc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease all;
+}
+
+.user-wizard .wizard-circle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.user-wizard .wizard-circle.active {
+  border-color: #1e70b7;
+  background-color: rgba(30, 112, 183, 0.1);
+}
+
+.user-wizard .wizard-circle.active svg {
+  color: #1e70b7;
+}
+
+.user-wizard .wizard-circle-label {
+  margin-top: 0.5em;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.user-wizard .wizard-step-content {
+  min-height: 300px;
+}
+
+.vm-wizard-header {
+  padding: 16px 18px 8px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.vm-wizard-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 6px 0 0;
+}
+
+.vm-wizard-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 8px;
+}
+
+.vm-wizard-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(148, 163, 184, 0.55);
+  color: #0f172a;
+  background: #ffffff;
+}
+
+.vm-wizard-badge.active {
+  border-color: #1e70b7;
+  background: rgba(30, 112, 183, 0.12);
+  color: #1e70b7;
+}
+
+.vm-wizard-badge.done {
+  border-color: #16a34a;
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
+}
+
+.vm-wizard-badge svg {
+  width: 18px;
+  height: 18px;
+}
+
+.vm-wizard-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.vm-wizard-label strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.vm-wizard-label span {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.vm-wizard-body {
+  padding: 18px;
+}
+
+.vm-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.vm-media-panel {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0b1220;
+  width: 250px;
+  height: 250px;
+}
+
+.vm-media-containers {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.vm-media-panel video,
+.vm-media-panel img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.vm-media-caption {
+  margin-top: 10px;
+  color: rgba(111, 114, 118, 0.92);
+  font-size: 12px;
+  text-align: center;
+}
+
+.vm-face-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.vm-inline-error {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.08);
+  color: #b91c1c;
+}
+
+.vm-inline-success {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  background: rgba(34, 197, 94, 0.08);
+  color: #166534;
+}
+
+.vm-match-panel {
+  margin-top: 16px;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  background: rgba(34, 197, 94, 0.07);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.vm-match-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.vm-match-head h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #14532d;
+}
+
+.vm-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.vm-summary-card {
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.vm-summary-card span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: #424345;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.vm-summary-card strong {
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.vm-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.vm-form-field label {
+  display: block;
+  font-size: 12px;
+  color: #334155;
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+.vm-select {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: #ffffff;
+  outline: none;
+}
+
+.vm-select:focus {
+  border-color: rgba(30, 112, 183, 0.9);
+  box-shadow: 0 0 0 4px rgba(30, 112, 183, 0.12);
+}
+
+.vm-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.vm-btn-compact {
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+.vm-btn-success:hover:not(:disabled) {
+  background: #15803d;
+}
+
+.vm-btn-orange:hover:not(:disabled) {
+  background: #155d98;
+}
+
+.vm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.vm-table thead th {
+  background: #f8fafc;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.vm-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+  color: #0f172a;
+}
+
+.vm-table tbody tr:hover {
+  background: rgba(30, 112, 183, 0.04);
+}
+
+.vm-wizard-footer {
+  padding: 14px 18px;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.vm-wizard-footer-right {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.vm-info-card {
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 14px;
+}
+
+.vm-info-card h4 {
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.vm-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.vm-info-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.vm-info-field span {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.vm-info-field strong {
+  font-size: 15px;
+  color: #0f172a;
+  word-break: break-word;
+}
+
+.vm-visit-history-section {
+  margin-bottom: 14px;
+}
+
+.vm-visit-history-section h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: #14532d;
+}
+
+.vm-checkin-action {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Checkbox styling for Safety Gear and Material Carrying */
+.vm-form-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.vm-form-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 0 !important;
+  font-weight: 500;
+  font-size: 16px;
+  color: #0f172a;
+  margin: 0 !important;
+}
+
+.vm-form-checkbox input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: #2563eb;
+  flex-shrink: 0;
+  border: 2px solid #d0d5dd;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.vm-form-checkbox input[type="checkbox"]:hover {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.vm-form-checkbox input[type="checkbox"]:checked {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}

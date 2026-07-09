@@ -1,0 +1,115 @@
+@media (max-width: 576px) {
+  .vm-create-visitor-page .user-wizard {
+    min-height: auto;
+    padding: 0 1rem 1.25rem;
+  }
+
+  .vm-create-visitor-page .wizard-step-content {
+    min-height: auto;
+  }
+
+  .vm-create-visitor-page .wizard-circles-container {
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .vm-create-visitor-page .wizard-circles-container::before {
+    left: 14%;
+    right: 14%;
+  }
+
+  .vm-create-visitor-page .wizard-circle {
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+
+  .vm-create-visitor-page .wizard-circle-label {
+    font-size: 12px;
+  }
+
+  .vm-create-visitor-page .vm-media-containers,
+  .vm-create-visitor-page .vm-form-grid,
+  .vm-create-visitor-page .vm-summary-grid,
+  .vm-create-visitor-page .vm-two-col {
+    grid-template-columns: 1fr;
+    display: grid;
+    justify-items: center;
+  }
+
+  .vm-create-visitor-page .vm-media-containers {
+    gap: 14px;
+  }
+
+  .vm-create-visitor-page .vm-media-containers > div,
+  .vm-create-visitor-page .vm-match-panel,
+  .vm-create-visitor-page .vm-form-grid,
+  .vm-create-visitor-page .vm-form-field,
+  .vm-create-visitor-page .vm-summary-grid {
+    width: 100%;
+  }
+
+  .vm-create-visitor-page .vm-media-panel {
+    margin: 0 auto;
+  }
+
+  .vm-create-visitor-page .vm-face-actions,
+  .vm-create-visitor-page .vm-match-head {
+    justify-content: stretch;
+  }
+
+  .vm-create-visitor-page .vm-face-actions .vm-btn {
+    padding: 10px 12px;
+    font-size: 14px;
+    min-height: 40px;
+  }
+
+  .vm-create-visitor-page .vm-face-actions .vm-btn,
+  .vm-create-visitor-page .vm-match-head .vm-btn,
+  .vm-create-visitor-page .vm-wizard-footer .vm-btn {
+    width: 100%;
+  }
+
+  .vm-create-visitor-page .vm-match-head {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px;
+  }
+
+  .vm-create-visitor-page .vm-summary-grid {
+    grid-template-columns: 1fr !important;
+    justify-items: stretch;
+  }
+
+  .vm-create-visitor-page .vm-summary-card strong {
+    word-break: break-word;
+    display: flex;
+  }
+
+  .vm-create-visitor-page .vm-inline-error,
+  .vm-create-visitor-page .vm-inline-success {
+    width: 100%;
+  }
+
+  .vm-create-visitor-page .vm-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-create-visitor-page .vm-checkin-action {
+    justify-content: stretch;
+  }
+
+  .vm-create-visitor-page .vm-checkin-action .vm-btn {
+    width: 100%;
+  }
+
+  /* Checkbox styling for mobile - keep text and checkbox on same line */
+  .vm-create-visitor-page .vm-form-checkbox {
+    width: auto !important;
+    flex-shrink: 0;
+  }
+
+  .vm-create-visitor-page .vm-form-checkbox label {
+    white-space: nowrap;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,64 @@
+@media (max-width: 576px) {
+  .vm-preregister-create .vm-preregister-body {
+    padding: 12px;
+  }
+
+  .vm-preregister-create .user-wizard {
+    min-height: auto;
+    padding: 0 1rem 1.25rem;
+  }
+
+  .vm-preregister-create .user-wizard .wizard-step-content {
+    min-height: auto;
+    margin: 1.25rem 0;
+  }
+
+  .vm-preregister-create .user-wizard .wizard-circles-container::before {
+    left: 14%;
+    right: 14%;
+  }
+
+  .vm-preregister-create .vm-wizard-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .vm-preregister-create .vm-phonebox {
+    flex-direction: column;
+    border-radius: 20px;
+  }
+
+  .vm-preregister-create .vm-phonebox-select {
+    width: 100%;
+    border-bottom: 1px solid #d0d5dd;
+  }
+
+  .vm-preregister-create .vm-phonebox-input {
+    width: 100%;
+  }
+
+  /* Checkbox styling for mobile - keep text and checkbox on same line */
+  .vm-preregister-create .vm-form-checkbox {
+    width: auto !important;
+    flex-shrink: 0;
+  }
+
+  .vm-preregister-create .vm-form-checkbox label {
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+  .vm-preregister-create .wizard-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .vm-preregister-create .wizard-nav-spacer {
+    display: none;
+  }
+
+  .vm-preregister-create .wizard-nav button {
+    width: 100%;
+  }
+}

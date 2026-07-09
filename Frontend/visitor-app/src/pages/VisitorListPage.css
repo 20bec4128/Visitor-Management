@@ -1,0 +1,337 @@
+@import './staff/StaffUsersPage.css';
+@import './VisitorListPage.mobile.css';
+
+.vm-clickable-row {
+  cursor: pointer;
+}
+
+.vm-clickable-row:hover {
+  background: rgba(241, 245, 249, 0.6);
+}
+
+.vm-clickable-row:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.6);
+  outline-offset: -2px;
+}
+
+.vm-visitor-table {
+  width: 100%;
+  table-layout: auto;
+}
+
+.vm-visitor-head-actions {
+  display: inline-flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.vm-visitor-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.vm-visitor-status-checked_in {
+  background: rgba(34, 197, 94, 0.14);
+  color: #16a34a;
+}
+
+.vm-visitor-status-checked_out {
+  background: rgba(148, 163, 184, 0.22);
+  color: #334155;
+}
+
+.vm-visitor-status-pending {
+  background: rgba(250, 204, 21, 0.18);
+  color: #b45309;
+}
+
+.vm-visitor-status-confirmed {
+  background: rgba(34, 197, 94, 0.14);
+  color: #16a34a;
+}
+
+.vm-visitor-status-active {
+  background: rgba(56, 189, 248, 0.14);
+  color: #0369a1;
+}
+
+.vm-visitor-status-approved {
+  background: rgba(34, 197, 94, 0.14);
+  color: #16a34a;
+}
+
+.vm-visitor-status-rejected {
+  background: rgba(148, 163, 184, 0.2);
+  color: #475569;
+}
+
+.vm-visitor-status-closed,
+.vm-visitor-status-draft {
+  background: rgba(148, 163, 184, 0.22);
+  color: #334155;
+}
+
+.vm-visitor-status-published {
+  background: rgba(34, 197, 94, 0.14);
+  color: #16a34a;
+}
+
+/* Modal Styles */
+.vm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.vm-modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 600px;
+  animation: slideInUp 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+}
+
+.vm-modal-content > form {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.vm-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.vm-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.vm-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #64748b;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.vm-modal-close:hover {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.vm-contact-form {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vm-email-template-form {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vm-email-template-form .vm-form-row {
+  margin-bottom: 0;
+}
+
+.vm-email-template-form select {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.vm-email-template-form select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.vm-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.vm-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.vm-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+.vm-form-group input,
+.vm-form-group select {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: white;
+}
+
+.vm-form-group input:focus,
+.vm-form-group select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.vm-form-group input::placeholder {
+  color: #94a3b8;
+}
+
+.vm-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Center the Action column (header + buttons) instead of right-aligning it.
+   The body cell uses .vm-actions which is display:flex (justify-content:flex-end by
+   default); the compound selector overrides that for visitor tables only. */
+.vm-visitor-table .vm-th-actions {
+  text-align: center;
+}
+
+.vm-visitor-table .vm-actions {
+  justify-content: center;
+}
+
+/* Reserve a fixed slot for the optional Check Out button so the edit/delete icons
+   line up across rows whether or not a row has a Check Out action. */
+.vm-action-lead {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 96px;
+}
+
+/* The check-out action carries a text label ("Check Out"), so it must size to its
+   content instead of staying a fixed icon square. The compound selector beats
+   .vm-action-reject's single-class width/height/padding (which is 32x32, padding 0)
+   regardless of stylesheet order. Red colouring is inherited from .vm-action-reject. */
+.vm-action-btn.vm-action-checkout {
+  width: auto;
+  min-width: 96px;
+  height: 32px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.vm-action-checkout .vm-action-text {
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.vm-btn-checkout {
+  white-space: nowrap;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .vm-modal-content {
+    max-width: 100%;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .vm-form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .vm-modal-header {
+    padding: 16px;
+  }
+
+  .vm-contact-form {
+    padding: 16px;
+  }
+
+  .vm-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .vm-modal-actions button {
+    width: 100%;
+  }
+
+  .vm-modal-content {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .vm-email-template-form .vm-form-row:last-of-type > div {
+    grid-column: 1 / -1 !important;
+  }
+
+  .vm-email-template-form .vm-form-row:nth-last-of-type(2) {
+    margin-bottom: 8px;
+  }
+}

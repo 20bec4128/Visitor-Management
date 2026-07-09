@@ -1,0 +1,7 @@
+@import './StaffUsersPage.css';
+
+.vm-logged-table {
+  width: 100%;
+  table-layout: auto;
+}
+

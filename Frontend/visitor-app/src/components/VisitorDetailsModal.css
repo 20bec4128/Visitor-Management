@@ -1,0 +1,127 @@
+/* Self-contained overlay: the modal is portaled to <body>, so it must not rely on
+   .vm-modal-overlay base rules that live in page-level CSS files. */
+.vm-modal-overlay.vm-details-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 16px;
+  z-index: 2000;
+}
+
+.vm-details-modal {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 22px 70px rgba(15, 23, 42, 0.22);
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: vmDetailsSlideUp 220ms ease-out;
+}
+
+.vm-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.vm-details-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.vm-details-body {
+  padding: 16px;
+  overflow: auto;
+  display: grid;
+  gap: 14px;
+}
+
+.vm-details-footer {
+  padding: 14px 16px 16px;
+  border-top: 1px solid rgba(148, 163, 184, 0.28);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.vm-details-footer .vm-btn {
+  min-width: 140px;
+}
+
+.vm-details-card {
+  background: linear-gradient(180deg, rgba(241, 245, 249, 0.7) 0%, rgba(255, 255, 255, 1) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.vm-details-card-title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.vm-details-field {
+  display: grid;
+  gap: 4px;
+  padding: 10px 0;
+}
+
+.vm-details-field + .vm-details-field {
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.vm-details-label {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #64748b;
+}
+
+.vm-details-value {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  word-break: break-word;
+}
+
+@keyframes vmDetailsSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .vm-modal-overlay.vm-details-overlay {
+    padding: 0 !important;
+  }
+
+  .vm-details-modal {
+    width: 80vw;
+    max-width: 80vw;
+    border-radius: 14px;
+  }
+
+  .vm-details-body {
+    padding: 14px;
+  }
+}

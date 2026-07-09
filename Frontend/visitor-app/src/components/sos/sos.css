@@ -1,0 +1,218 @@
+/* ---- Topbar trigger button ---- */
+.vm-sos-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35);
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.vm-sos-trigger:hover { background: #b91c1c; transform: translateY(-1px); }
+
+.vm-sos-trigger-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  animation: vm-sos-pulse 1.2s infinite;
+}
+
+@keyframes vm-sos-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ---- Confirm dialog ---- */
+.vm-sos-confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 4100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.vm-sos-confirm {
+  width: min(420px, 92vw);
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+.vm-sos-confirm h3 { margin: 0 0 6px; color: #b91c1c; font-size: 18px; }
+.vm-sos-confirm p { margin: 0 0 14px; color: #4b5563; font-size: 14px; }
+
+.vm-sos-confirm-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px;
+  font: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.vm-sos-confirm-error { color: #dc2626; font-size: 13px; margin-top: 8px; }
+
+.vm-sos-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.vm-sos-cancel,
+.vm-sos-send {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.vm-sos-cancel { background: #e5e7eb; color: #374151; }
+.vm-sos-send { background: #dc2626; color: #fff; }
+.vm-sos-send:disabled,
+.vm-sos-cancel:disabled { opacity: 0.6; cursor: default; }
+
+/* ---- Full-screen alert overlay ---- */
+.vm-sos-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 4200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(127, 29, 29, 0.92);
+  animation: vm-sos-flash 1s steps(1) infinite;
+}
+
+@keyframes vm-sos-flash {
+  0%, 100% { background: rgba(127, 29, 29, 0.92); }
+  50% { background: rgba(185, 28, 28, 0.92); }
+}
+
+.vm-sos-overlay-inner {
+  width: min(560px, 96vw);
+  max-height: 86vh;
+  overflow: auto;
+}
+
+.vm-sos-overlay-title {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.vm-sos-overlay-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.vm-sos-overlay-who {
+  font-weight: 700;
+  font-size: 16px;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vm-sos-overlay-role {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #b91c1c;
+  background: #fee2e2;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.vm-sos-overlay-msg { color: #374151; margin: 8px 0; font-size: 15px; }
+
+.vm-sos-overlay-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.vm-sos-overlay-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.vm-sos-ack,
+.vm-sos-resolve {
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.vm-sos-ack { background: #e5e7eb; color: #374151; }
+.vm-sos-resolve { background: #16a34a; color: #fff; }
+
+/* ---- SOS log page ---- */
+.vm-sos-log { padding: 4px; }
+.vm-sos-log-empty { color: #6b7280; }
+
+.vm-sos-log-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.vm-sos-log-table th,
+.vm-sos-log-table td {
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.vm-sos-log-table th {
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.vm-sos-row-active { background: #fef2f2; }
+
+.vm-sos-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.vm-sos-badge.active { background: #fee2e2; color: #b91c1c; }
+.vm-sos-badge.resolved { background: #dcfce7; color: #166534; }

@@ -1,0 +1,47 @@
+@media (max-width: 576px) {
+  .vm-visitor-head-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .vm-visitor-head-actions .vm-btn {
+    flex: 1 1 0;
+  }
+
+  /* Status cell alignment on mobile */
+  .vm-visitor-table .vm-col-status {
+    text-align: center;
+    padding: 10px 6px;
+  }
+
+  /* Action cell alignment on mobile */
+  .vm-visitor-table .vm-actions,
+  .vm-visitor-table .vm-col-actions {
+    text-align: center;
+    padding: 10px 6px;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  /* Mobile: Show action buttons with text */
+  .vm-action-approve,
+  .vm-action-reject {
+    padding: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    height: auto;
+    width: auto;
+  }
+
+  .vm-action-text {
+    display: inline;
+  }
+
+  .vm-action-icon {
+    font-size: 14px;
+  }
+}

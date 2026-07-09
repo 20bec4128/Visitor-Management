@@ -1,0 +1,349 @@
+@keyframes vm-qr-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes vm-qr-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.vm-qr-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  z-index: 9999;
+  padding: 20px;
+  animation: vm-qr-overlay-in 0.2s ease both;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.vm-qr-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.28);
+  max-width: 460px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: vm-qr-modal-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.vm-qr-modal-head {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.vm-qr-modal-head h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.vm-qr-modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.vm-qr-modal-close:hover {
+  color: #1f2937;
+  background: #f1f5f9;
+  transform: rotate(90deg);
+}
+
+.vm-qr-modal-content {
+  padding: 20px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.vm-qr-camera-container {
+  position: relative;
+  background: #0f172a;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.vm-qr-video {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Scan reticle over the live video */
+@keyframes vm-qr-reticle-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    border-color: rgba(255, 255, 255, 0.85);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+    border-color: rgba(37, 99, 235, 0.95);
+  }
+}
+
+.vm-qr-camera-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 160px;
+  transform: translate(-50%, -50%);
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  border-radius: 14px;
+  box-shadow: 0 0 0 100vmax rgba(15, 23, 42, 0.35);
+  pointer-events: none;
+  animation: vm-qr-reticle-pulse 1.8s ease-in-out infinite;
+}
+
+.vm-qr-hint {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.vm-qr-placeholder {
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 36px 24px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.vm-qr-placeholder-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.vm-qr-placeholder-title {
+  margin: 0 0 4px;
+  color: #334155;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.vm-qr-placeholder-sub {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.vm-qr-error {
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.vm-qr-manual-section {
+  margin-bottom: 0;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+.vm-qr-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vm-qr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vm-qr-input {
+  padding: 11px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.vm-qr-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.vm-qr-btn-manual {
+  padding: 11px 16px;
+  background: #2563eb;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.vm-qr-btn-manual:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+}
+
+.vm-qr-btn-manual:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.vm-qr-modal-footer {
+  flex-shrink: 0;
+  display: flex;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.vm-qr-btn {
+  flex: 1;
+  padding: 11px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.vm-qr-btn:hover {
+  background: #f9fafb;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+}
+
+.vm-qr-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.vm-qr-btn-close {
+  border-color: #d1d5db;
+}
+
+.vm-qr-btn-stop {
+  background: #6b7280;
+  color: #ffffff;
+  border-color: #6b7280;
+}
+
+.vm-qr-btn-stop:hover {
+  background: #4b5563;
+}
+
+.vm-qr-btn-start {
+  background: #3b82f6;
+  color: #ffffff;
+  border-color: #3b82f6;
+}
+
+.vm-qr-btn-start:hover {
+  background: #2563eb;
+}
+
+.vm-qr-btn-stop,
+.vm-qr-btn-start {
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.vm-qr-btn-start:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-qr-modal-overlay,
+  .vm-qr-modal,
+  .vm-qr-camera-container::before {
+    animation: none;
+  }
+
+  .vm-qr-btn,
+  .vm-qr-btn-manual,
+  .vm-qr-modal-close {
+    transition: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .vm-qr-modal-overlay {
+    padding: 0;
+  }
+
+  .vm-qr-modal {
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .vm-qr-video {
+    height: 250px;
+  }
+
+  .vm-qr-modal-footer {
+    flex-direction: column;
+  }
+
+  .vm-qr-btn {
+    flex: 1 1 100%;
+  }
+}

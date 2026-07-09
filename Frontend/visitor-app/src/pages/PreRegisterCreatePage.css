@@ -1,0 +1,370 @@
+@import './staff/StaffUsersPage.css';
+
+.vm-preregister-create .vm-card-head {
+  align-items: center;
+}
+
+.vm-preregister-back {
+  border: 0;
+  background: transparent;
+  color: #0f172a;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.vm-preregister-body {
+  padding: 14px 16px 18px;
+}
+
+.vm-inline-error {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #b91c1c;
+}
+
+.user-wizard {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  height: auto;
+  padding: 0rem 2rem 2rem 2rem;
+  background-color: #fcfcfc;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.user-wizard .wizard-progress-bar {
+  width: 100%;
+  height: 4px;
+  background-color: #e9ecef;
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+
+.user-wizard .wizard-progress {
+  height: 100%;
+  background-color: #45597a;
+  border-radius: 2px;
+  transform-origin: left center;
+}
+
+.user-wizard .wizard-circles-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.user-wizard .wizard-circles-container::before {
+  content: '';
+  position: absolute;
+  top: 1.5em;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: #45597a;
+  z-index: 0;
+}
+
+.user-wizard .wizard-circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.user-wizard .wizard-circle {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid #45597a;
+  background-color: #fcfcfc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease all;
+}
+
+.user-wizard .wizard-circle i {
+  display: none;
+}
+
+.user-wizard .wizard-circle svg {
+  width: 1.55rem;
+  height: 1.55rem;
+  color: #45597a;
+}
+
+.user-wizard .wizard-circle.active {
+  background-color: #45597a !important;
+  box-shadow: 0 12px 28px rgba(69, 89, 122, 0.16);
+}
+
+.user-wizard .wizard-circle.active i {
+  display: none;
+}
+
+.user-wizard .wizard-circle.active svg {
+  color: #fcfcfc !important;
+}
+
+.user-wizard .wizard-circle-label {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #34393f;
+  text-align: center;
+}
+
+.user-wizard .wizard-step-content {
+  min-height: 250px;
+  margin: 2rem 0;
+}
+
+.user-wizard-input {
+  border-radius: 2rem !important;
+  border: 1px solid #d0d5dd !important;
+  padding: 0.6rem 1rem !important;
+  font-size: 0.95rem !important;
+  background-color: #ffffff !important;
+  color: #34393f !important;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.user-wizard-input:hover {
+  border-color: #45597a !important;
+  background-color: #f8fafc !important;
+}
+
+.user-wizard-input:focus {
+  border-color: #45597a !important;
+  box-shadow: 0 0 0 0.2rem rgba(69, 89, 122, 0.15) !important;
+  background-color: #ffffff !important;
+}
+
+.user-wizard .wizard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.user-wizard .wizard-nav button {
+  border-radius: 2rem;
+  width: 10rem;
+  min-height: 2.5rem;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.user-wizard .wizard-nav button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+}
+
+.user-wizard .wizard-nav-spacer {
+  flex: 1;
+}
+
+.vm-wizard-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 14px;
+  margin-top: 14px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.vm-wizard-step {
+  display: block !important;
+  width: 100%;
+}
+
+.vm-field {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.vm-field label {
+  display: block !important;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.vm-field input:not(.vm-phonebox-input),
+.vm-field select:not(.vm-phonebox-select),
+.vm-field textarea {
+  width: 100% !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+.vm-phonebox {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 2rem;
+  border: 1px solid #d0d5dd;
+  background: #ffffff;
+  height: 2.6rem; /* ✅ same height as inputs */
+  padding: 0 0.75rem;
+  gap: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vm-phonebox:hover {
+  border-color: #45597a;
+  background-color: #f8fafc;
+}
+
+.vm-phonebox:focus-within {
+  border-color: #45597a;
+  box-shadow: 0 0 0 0.2rem rgba(69, 89, 122, 0.15);
+}
+
+.vm-phonebox-select {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 70px;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.vm-phonebox-select::-ms-expand {
+  display: none;
+}
+
+.vm-phonebox-code-wrapper {
+  display: flex;
+  align-items: center;
+  padding-right: 6px;
+  border-right: 1px solid #e2e8f0;
+}
+
+/* Input */
+.vm-phonebox-input {
+  position: relative;
+  z-index: 11;
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.95rem;
+  height: 100%;
+}
+
+.vm-phonebox-code {
+  font-size: 0.95rem;
+  color: #34393f;
+  text-align: center;
+  font-weight: 500;
+  user-select: none;
+  pointer-events: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* .vm-phonebox-input {
+  flex: 1 1 auto !important;
+  display: inline!important;
+  width: auto !important;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-size: 0.95rem;
+  color: #34393f;
+  height: auto;
+  margin: 0;
+  min-width: 0;
+} */
+
+.vm-file-input {
+  padding-top: 0.55rem !important;
+  padding-bottom: 0.55rem !important;
+}
+
+.vm-org-section {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.vm-org-title {
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.vm-textarea {
+  border-radius: 18px !important;
+}
+
+@media (min-width: 1200px) {
+  .vm-wizard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Checkbox styling for Safety Gear and Material Carrying */
+.vm-form-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.vm-form-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 0 !important;
+  font-weight: 500;
+  font-size: 16px;
+  color: #0f172a;
+  margin: 0 !important;
+}
+
+.vm-form-checkbox input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: #2563eb;
+  flex-shrink: 0;
+  border: 2px solid #d0d5dd;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.vm-form-checkbox input[type="checkbox"]:hover {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.vm-form-checkbox input[type="checkbox"]:checked {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}

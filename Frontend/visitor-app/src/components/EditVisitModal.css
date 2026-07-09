@@ -1,0 +1,103 @@
+.vm-edit-visit-modal {
+  max-width: 480px;
+}
+
+.vm-edit-visit-body {
+  padding: 18px 20px 20px;
+  display: grid;
+  gap: 14px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.vm-edit-visit-section {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748b;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+  margin-top: 4px;
+}
+
+.vm-edit-visit-phone {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 8px;
+}
+
+.vm-edit-visit-subject {
+  margin: 0;
+  font-size: 14px;
+  color: #475569;
+}
+
+.vm-edit-visit-field {
+  display: grid;
+  gap: 6px;
+}
+
+.vm-edit-visit-field > span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #334155;
+}
+
+.vm-edit-visit-phone select {
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  border-radius: 10px;
+  padding: 10px 8px;
+  font-size: 14px;
+  background: #fff;
+  color: #0f172a;
+}
+
+.vm-edit-visit-phone input {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #0f172a;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.vm-edit-visit-field input,
+.vm-edit-visit-field textarea {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #0f172a;
+  background: #fff;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.vm-edit-visit-field input:focus,
+.vm-edit-visit-field textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.vm-edit-visit-field textarea {
+  resize: vertical;
+}
+
+.vm-edit-visit-error {
+  margin: 0;
+  font-size: 13px;
+  color: #dc2626;
+}
+
+.vm-edit-visit-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
